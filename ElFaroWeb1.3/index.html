@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Faro Constructora | Obras, Refacciones y Mantenimiento</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Montserrat', 'sans-serif'] },
+                    colors: {
+                        navy: '#0A192F',
+                        orange: '#FF6B00',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-slide { opacity: 0; transition: opacity 1.5s ease-in-out; }
+        .hero-slide.active { opacity: 1; }
+        
+        .whatsapp-pulse {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* Estilos para el menú de texto (sin formato de botón) */
+        .tab-menu-item {
+            position: relative;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        .tab-menu-item::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #FF6B00;
+            transition: width 0.3s ease;
+        }
+        .tab-menu-item.active {
+            font-weight: 700;
+            color: #0A192F;
+        }
+        .tab-menu-item.active::after {
+            width: 100%;
+        }
+
+        /* Suavidad al filtrar imágenes */
+        .gallery-item {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800 font-sans leading-normal antialiased">
+
+    <!-- Header Limpio y Minimalista -->
+    <header class="bg-white py-6 border-b border-gray-100 sticky top-0 z-40 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 text-center md:text-left">
+            <h1 class="text-2xl font-extrabold text-navy tracking-tight uppercase">
+                EL FARO <span class="text-orange">CONSTRUCTORA</span>
+            </h1>
+        </div>
+    </header>
+
+    <!-- Banner Principal -->
+    <section class="bg-gray-50 py-16 px-4 border-b border-gray-100 relative z-10">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl md:text-5xl font-extrabold text-navy mb-6 leading-tight">
+                Tu hogar, en las mejores manos.
+            </h2>
+            <p class="text-xl text-gray-600 mb-6 font-light leading-relaxed">
+                Unimos innovación técnica con una <strong class="text-navy font-bold">vasta trayectoria</strong> para ofrecerte eficacia y resultados reales. En El Faro Constructora garantizamos la calidad y la presentación impecable de cada obra.
+            </p>
+            <p class="text-orange text-sm font-bold uppercase tracking-widest mt-4">
+                ⭐ Personal Matriculado & Inspección Final
+            </p>
+        </div>
+    </section>
+
+    <!-- Catálogo Completo Filtrable (Menú de Texto) -->
+    <main class="max-w-7xl mx-auto px-4 py-16 min-h-[600px]">
+        
+        <!-- Menú de Pestañas (Solo Texto) -->
+        <div class="mb-12 border-b border-gray-200 pb-6 flex flex-col md:flex-row justify-between items-end gap-6">
+            <div>
+                <h3 class="text-3xl font-bold text-navy mb-4">Nuestro Catálogo de Trabajos</h3>
+                <ul class="flex flex-wrap gap-6 text-gray-500 font-medium text-lg" id="gallery-tabs">
+                    <li class="tab-menu-item active" data-filter="nosotros">Nosotros</li>
+                    <li class="tab-menu-item" data-filter="exteriores">Pérgolas y Decks</li>
+                    <li class="tab-menu-item" data-filter="interiores">Interiores y Diseño</li>
+                    <li class="tab-menu-item" data-filter="techos">Techos y Altura</li>
+                    <li class="tab-menu-item" data-filter="fachadas">Fachadas</li>
+                    <li class="tab-menu-item" data-filter="estructuras">Estructuras y Domos</li>
+                    <li class="tab-menu-item" data-filter="piscinas">Piscinas</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Contenedor General de Contenido (Secciones + Grilla) -->
+        <div id="content-container">
+
+            <!-- SECCIÓN: NOSOTROS (Presentación de la Empresa) -->
+            <div class="gallery-item block" data-category="nosotros" id="nosotros-section">
+                <div class="bg-white rounded-2xl p-8 md:p-12 border border-gray-100 shadow-sm">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                        <div class="space-y-6">
+                            <h4 class="text-3xl font-extrabold text-navy">Transformamos tus planes en realidades concretas.</h4>
+                            <p class="text-lg text-gray-600 leading-relaxed">
+                                En El Faro Constructora, te acompañamos durante todo el proceso de ejecución, respetando tu visión original y aplicando los más estrictos estándares de calidad.
+                            </p>
+                            <p class="text-lg text-gray-600 leading-relaxed">
+                                Nuestra vasta experiencia y la capacitación de nuestro personal nos permiten brindarte un servicio superior: ágil, eficiente y totalmente enfocado en tus objetivos.
+                            </p>
+                            <div class="bg-gray-50 p-6 rounded-xl border-l-4 border-orange">
+                                <p class="text-gray-700 italic font-medium">
+                                    Como sello de confianza, cada uno de nuestros trabajos es sometido a una exhaustiva inspección de calidad final, garantizando la excelencia en cada detalle.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="h-full w-full flex items-center justify-center">
+                            <!-- Imagen actualizada y corregida al nombre solicitado -->
+                            <img src="domos2.jpeg.jpeg" onerror="this.style.display='none'" alt="Estructura de domo" class="w-full h-auto max-h-[500px] object-cover rounded-xl shadow-lg cursor-zoom-in">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Grilla de Imágenes del Catálogo -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="gallery-grid" style="display: none;">
+
+                <!-- CATEGORÍA: EXTERIORES (Pérgolas y Decks) -->
+                <article class="gallery-item hidden bg-white border border-gray-100 rounded-lg overflow-hidden shadow-sm" data-category="exteriores">
+                    <img src="pergola-terraza.jpg.jpeg" onerror="this.style.display='none'" alt="Pérgola en terraza" class="w-full h-60 object-cover cursor-zoom-in">
+                    <div class="p-4"><p class="font-bold text-navy">Pérgola en Terraza</p><p class="text-sm text-gray-500">Diseño a medida con cobertura translúcida.</p></div>
+                </article>
+
+                <article class="gallery-item hidden bg-white border border-gray-100 rounded-lg overflow-hidden shadow-sm" data-category="exteriores">
+                    <img src="pergola-piscina.jpg.jpeg" onerror="this.style.display='none'" alt="Pérgola y Deck piscina" class="w-full h-60 object-cover cursor-zoom-in">
+                    <div class="p-4"><p class="font-bold text-navy">Pérgola para Piscina</p><p class="text-sm text-gray-500">Estructura y deck en zona de humedad.</p></div>
+                </article>
+
+                <article class="gallery-item hidden bg-white border border-gray-100 rounded-lg overflow-hidden shadow-sm" data-category="exteriores">
+                    <img src="pergola-cochera.jpg.jpeg" onerror="this.style.display='none'" alt="Pérgola cochera" class="w-full h-60 object-cover cursor-zoom-in">
+                    <div class="p-4"><p class="font-bold text-navy">Cochera Cubierta</p><p class="text-sm text-gray-500">Pérgola de madera de alta resistencia.</p></div>
+                </article>
+
+                <article class="gallery-item hidden bg-white border border-gray-100 rounded-lg overflow-hidden shadow-sm" data-category="exteriores">
+                    <img src="deck-largo.jpg.jpeg" onerror="this.style.display='none'" alt="Deck lateral" class="w-full h-60 object-cover cursor-zoom-in">
+                    <div class="p-4"><p class="font-bold text-navy">Deck de Madera</p><p class="text-sm text-gray-500">Instalación longitudinal tratada para intemperie.</p></div>
+                </article>
+
+                <article class="gallery-item hidden bg-white border border-gray-100 rounded-lg overflow-hidden shadow-sm" data-category="exteriores">
+                    <img src="detalle-madera.jpg.jpeg" onerror="this.style.display='none'" alt="Detalle de deck" class="w-full h-60 object-cover cursor-zoom-in">
+                    <div class="p-4"><p class="font-bold text-navy">Detalle de Solarium</p><p class="text-sm text-gray-500">Acabados perfectos en uniones y tornillería.</p></div>
+                </article>
+
+
+                <!-- CATEGORÍA: INTERIORES Y DISEÑO -->
+                <article class="gallery-item hidden bg-white border border-gray-100 rounded-lg overflow-hidden shadow-sm" data-category="interiores">
+                    <img src="pared-comedor.jpg.jpeg" onerror="this.style.display='none'" alt="Preparación pared comedor" class="w-full h-60 object-cover cursor-zoom-in">
+                    <div class="p-4"><p class="font-bold text-navy">Renovación de Comedor</p><p class="text-sm text-gray-500">Instalación de guías para revestimiento.</p></div>
+                </article>
+
+                <article class="gallery-item hidden bg-white border border-gray-100 rounded-lg overflow-hidden shadow-sm" data-category="interiores">
+                    <img src="refaccion-pared.jpeg" onerror="this.style.display='none'" alt="Pared terminada" class="w-full h-60 object-cover cursor-zoom-in">
+                    <div class="p-4"><p class="font-bold text-navy">Revestimiento de Interiores</p><p class="text-sm text-gray-500">Acabado final en madera decorativa.</p></div>
+                </article>
+
+                <article class="gallery-item hidden bg-white border border-gray-100 rounded-lg overflow-hidden shadow-sm" data-category="interiores">
+                    <img src="interior-diseno.jpg.jpeg" onerror="this.style.display='none'" alt="Marco de madera antiguo" class="w-full h-60 object-cover cursor-zoom-in">
+                    <div class="p-4"><p class="font-bold text-navy">Diseño y Restauración</p><p class="text-sm text-gray-500">Integración de aberturas de estilo.</p></div>
+                </article>
+
+                <article class="gallery-item hidden bg-white border border-gray-100 rounded-lg overflow-hidden shadow-sm" data-category="interiores">
+                    <img src="pared-cuarto.jpeg.jpeg" onerror="this.style.display='none'" alt="Reparación de cuarto" class="w-full h-60 object-cover cursor-zoom-in">
+                    <div class="p-4"><p class="font-bold text-navy">Reparación de Humedades</p><p class="text-sm text-gray-500">Picado y sellado de paredes interiores.</p></div>
+                </article>
+
+                <article class="gallery-item hidden bg-white border border-gray-100 rounded-lg overflow-hidden shadow-sm" data-category="interiores">
+                    <img src="image_6.png.jpeg" onerror="this.style.display='none'" alt="Tabique de madera" class="w-full h-60 object-cover cursor-zoom-in">
+                    <div class="p-4"><p class="font-bold text-navy">Tabiques y Cerramientos</p><p class="text-sm text-gray-500">Divisiones de ambientes en madera machimbrada.</p></div>
+                </article>
+
+
+                <!-- CATEGORÍA: FACHADAS -->
+                <article class="gallery-item hidden bg-white border border-gray-100 rounded-lg overflow-hidden shadow-sm" data-category="fachadas">
+                    <img src="revestimientos-frente.jpeg" onerror="this.style.display='none'" alt="Fachada de casa" class="w-full h-60 object-cover cursor-zoom-in">
+                    <div class="p-4"><p class="font-bold text-navy">Fachadas Modernas</p><p class="text-sm text-gray-500">Revestimiento exterior en viviendas de dos plantas.</p></div>
+                </article>
+
+                <article class="gallery-item hidden bg-white border border-gray-100 rounded-lg overflow-hidden shadow-sm" data-category="fachadas">
+                    <img src="pared-obra.jpg.jpeg" onerror="this.style.display='none'" alt="Cerco perimetral" class="w-full h-60 object-cover cursor-zoom-in">
+                    <div class="p-4"><p class="font-bold text-navy">Cercos Perimetrales</p><p class="text-sm text-gray-500">Construcción de límites frontales en madera.</p></div>
+                </article>
+
+                <article class="gallery-item hidden bg-white border border-gray-100 rounded-lg overflow-hidden shadow-sm" data-category="fachadas">
+                    <img src="revoque1.jpeg.jpeg" onerror="this.style.display='none'" alt="Pared exterior antes" class="w-full h-60 object-cover cursor-zoom-in">
+                    <div class="p-4"><p class="font-bold text-navy">Restauración de Muros (Fase 1)</p><p class="text-sm text-gray-500">Picado profundo y remoción de revoque deteriorado.</p></div>
+                </article>
+
+                <article class="gallery-item hidden bg-white border border-gray-100 rounded-lg overflow-hidden shadow-sm" data-category="fachadas">
+                    <img src="revoque2.jpeg.jpeg" onerror="this.style.display='none'" alt="Pared exterior reparada" class="w-full h-60 object-cover cursor-zoom-in">
+                    <div class="p-4"><p class="font-bold text-navy">Revoque y Nivelación</p><p class="text-sm text-gray-500">Restauración estructural exterior lista para revestimiento.</p></div>
+                </article>
+
+
+                <!-- CATEGORÍA: ESTRUCTURAS Y DOMOS -->
+                <article class="gallery-item hidden bg-white border border-gray-100 rounded-lg overflow-hidden shadow-sm" data-category="estructuras">
+                    <img src="domos1.jpeg.jpeg" onerror="this.style.display='none'" alt="Domo Geodésico" class="w-full h-60 object-cover cursor-zoom-in">
+                    <div class="p-4"><p class="font-bold text-navy">Domos Geodésicos</p><p class="text-sm text-gray-500">Armado de estructuras complejas a medida.</p></div>
+                </article>
+
+                <article class="gallery-item hidden bg-white border border-gray-100 rounded-lg overflow-hidden shadow-sm" data-category="estructuras">
+                    <img src="domos2.jpeg.jpeg" onerror="this.style.display='none'" alt="Trabajo en domo" class="w-full h-60 object-cover cursor-zoom-in">
+                    <div class="p-4"><p class="font-bold text-navy">Cubiertas Especiales</p><p class="text-sm text-gray-500">Trabajos de cerramiento y sellado en altura.</p></div>
+                </article>
+
+
+                <!-- CATEGORÍA: PISCINAS -->
+                <article class="gallery-item hidden bg-white border border-gray-100 rounded-lg overflow-hidden shadow-sm" data-category="piscinas">
+                    <img src="pileta1.jpeg.jpeg" onerror="this.style.display='none'" alt="Preparación de piscina" class="w-full h-60 object-cover cursor-zoom-in">
+                    <div class="p-4"><p class="font-bold text-navy">Preparación de Superficie</p><p class="text-sm text-gray-500">Limpieza profunda y remoción de material dañado.</p></div>
+                </article>
+
+                <article class="gallery-item hidden bg-white border border-gray-100 rounded-lg overflow-hidden shadow-sm" data-category="piscinas">
+                    <img src="pileta2.jpeg.jpeg" onerror="this.style.display='none'" alt="Restauración de piscina" class="w-full h-60 object-cover cursor-zoom-in">
+                    <div class="p-4"><p class="font-bold text-navy">Restauración y Sellado</p><p class="text-sm text-gray-500">Acondicionamiento del vaso y bordes atérmicos.</p></div>
+                </article>
+
+                <article class="gallery-item hidden bg-white border border-gray-100 rounded-lg overflow-hidden shadow-sm" data-category="piscinas">
+                    <img src="pileta3.jpeg.jpeg" onerror="this.style.display='none'" alt="Piscina terminada" class="w-full h-60 object-cover cursor-zoom-in">
+                    <div class="p-4"><p class="font-bold text-navy">Acabado Final</p><p class="text-sm text-gray-500">Piscina lista para pintura o tratamiento de llenado.</p></div>
+                </article>
+
+
+                <!-- CATEGORÍA: TECHOS Y MANTENIMIENTO -->
+                <article class="gallery-item hidden bg-white border border-gray-100 rounded-lg overflow-hidden shadow-sm" data-category="techos">
+                    <img src="imper-techos1.jpeg.jpeg" onerror="this.style.display='none'" alt="Techo antes" class="w-full h-60 object-cover cursor-zoom-in">
+                    <div class="p-4"><p class="font-bold text-navy">Terrazas (Fase 1)</p><p class="text-sm text-gray-500">Limpieza y preparación para impermeabilizar.</p></div>
+                </article>
+
+                <article class="gallery-item hidden bg-white border border-gray-100 rounded-lg overflow-hidden shadow-sm" data-category="techos">
+                    <img src="imper-techos2.jpeg.jpeg" onerror="this.style.display='none'" alt="Techo en proceso" class="w-full h-60 object-cover cursor-zoom-in">
+                    <div class="p-4"><p class="font-bold text-navy">Impermeabilización</p><p class="text-sm text-gray-500">Aplicación de membrana y tratamientos aislantes.</p></div>
+                </article>
+
+                <article class="gallery-item hidden bg-white border border-gray-100 rounded-lg overflow-hidden shadow-sm" data-category="techos">
+                    <img src="techos-altura1.jpeg.jpeg" onerror="this.style.display='none'" alt="Techo terminado" class="w-full h-60 object-cover cursor-zoom-in">
+                    <div class="p-4"><p class="font-bold text-navy">Cubierta Terminada</p><p class="text-sm text-gray-500">Aislamiento térmico y sellado total.</p></div>
+                </article>
+
+                <article class="gallery-item hidden bg-white border border-gray-100 rounded-lg overflow-hidden shadow-sm" data-category="techos">
+                    <img src="techos-altura2.jpeg.jpeg" onerror="this.style.display='none'" alt="Reparación en altura" class="w-full h-60 object-cover cursor-zoom-in">
+                    <div class="p-4"><p class="font-bold text-navy">Mantenimiento en Altura</p><p class="text-sm text-gray-500">Reparación de techos de chapa y zinguería.</p></div>
+                </article>
+
+                <article class="gallery-item hidden bg-white border border-gray-100 rounded-lg overflow-hidden shadow-sm" data-category="techos">
+                    <img src="pozo.jpeg.jpeg" onerror="this.style.display='none'" alt="Construcción de pozo" class="w-full h-60 object-cover cursor-zoom-in">
+                    <div class="p-4"><p class="font-bold text-navy">Obras Sanitarias</p><p class="text-sm text-gray-500">Construcción de cámaras y desagües subterráneos.</p></div>
+                </article>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer de Información Pura -->
+    <footer class="bg-gray-50 border-t border-gray-200 py-16 px-4 mt-10">
+        <div class="max-w-4xl mx-auto text-center">
+            <h3 class="text-2xl font-bold text-navy mb-4">El Faro Constructora</h3>
+            <p class="text-gray-600 mb-1">📍 Atención en Munro y alrededores</p>
+            <p class="text-gray-500 text-sm mb-6">Provincia de Buenos Aires, Argentina</p>
+            
+            <p class="text-3xl font-black text-navy mb-2">+54 9 11 2563-5371</p>
+            <p class="text-xs text-gray-400 uppercase tracking-widest font-semibold mt-12">
+                © 2026 El Faro Constructora | Vasta Trayectoria
+            </p>
+        </div>
+    </footer>
+
+    <!-- ÚNICO BOTÓN: WhatsApp -->
+    <a href="https://wa.me/5491125635371?text=Hola!%20Me%20contacto%20desde%20la%20web%20de%20El%20Faro.%20Quisiera%20pedir%20un%20presupuesto." 
+       target="_blank" 
+       class="whatsapp-pulse fixed bottom-6 right-6 md:bottom-8 md:right-8 bg-[#25D366] text-white px-6 py-4 rounded-full font-bold text-lg shadow-2xl z-50 flex items-center hover:scale-105 transition-transform">
+        <span class="mr-2 text-2xl">💬</span> Contactar a El Faro
+    </a>
+
+    <!-- Lightbox Modal (Visor de imágenes CENTRADO) -->
+    <!-- NOTA: Se agregó la clase "flex" al activarlo desde JS para que items-center y justify-center funcionen perfectamente -->
+    <div id="image-lightbox" class="fixed inset-0 z-[100] bg-black/95 hidden flex-col items-center justify-center cursor-zoom-out opacity-0 transition-opacity duration-300">
+        <span class="absolute top-6 right-6 text-white text-sm font-bold tracking-widest uppercase">Cerrar ✕</span>
+        <img id="lightbox-img" src="" alt="Imagen ampliada" class="max-h-[90vh] max-w-[95vw] object-contain rounded-lg shadow-2xl scale-95 transition-transform duration-300">
+    </div>
+
+    <!-- Lógica del Menú de Texto (Tabs) y Lightbox -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabs = document.querySelectorAll('.tab-menu-item');
+            const galleryItems = document.querySelectorAll('.gallery-item[data-category]:not(#nosotros-section)');
+            const nosotrosSection = document.getElementById('nosotros-section');
+            const galleryGrid = document.getElementById('gallery-grid');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+
+                    const filter = tab.getAttribute('data-filter');
+
+                    if (filter === 'nosotros') {
+                        nosotrosSection.style.display = 'block';
+                        nosotrosSection.style.animation = 'none';
+                        nosotrosSection.offsetHeight; 
+                        nosotrosSection.style.animation = null;
+                        
+                        galleryGrid.style.display = 'none';
+                    } else {
+                        nosotrosSection.style.display = 'none';
+                        galleryGrid.style.display = 'grid'; 
+
+                        galleryItems.forEach(item => {
+                            if (item.getAttribute('data-category') === filter) {
+                                item.classList.remove('hidden');
+                                item.classList.add('block');
+                                item.style.animation = 'none';
+                                item.offsetHeight; 
+                                item.style.animation = null; 
+                            } else {
+                                item.classList.remove('block');
+                                item.classList.add('hidden');
+                            }
+                        });
+                    }
+                });
+            });
+
+            // Lógica del Lightbox (Visor de imágenes)
+            const lightbox = document.getElementById('image-lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const zoomableImages = document.querySelectorAll('.gallery-item img, #nosotros-section img');
+
+            zoomableImages.forEach(img => {
+                img.classList.add('cursor-zoom-in');
+                img.addEventListener('click', () => {
+                    lightboxImg.src = img.src;
+                    
+                    // Aquí estaba el secreto para centrarlo: cambiar 'hidden' por 'flex'
+                    lightbox.classList.remove('hidden');
+                    lightbox.classList.add('flex');
+                    
+                    requestAnimationFrame(() => {
+                        lightbox.classList.remove('opacity-0');
+                        lightboxImg.classList.remove('scale-95');
+                        lightboxImg.classList.add('scale-100');
+                    });
+                });
+            });
+
+            // Cerrar el visor
+            lightbox.addEventListener('click', () => {
+                lightbox.classList.add('opacity-0');
+                lightboxImg.classList.remove('scale-100');
+                lightboxImg.classList.add('scale-95');
+                
+                setTimeout(() => {
+                    lightbox.classList.add('hidden');
+                    lightbox.classList.remove('flex'); // Removemos 'flex' y volvemos a 'hidden'
+                }, 300); 
+            });
+        });
+    </script>
+
+</body>
+</html>
